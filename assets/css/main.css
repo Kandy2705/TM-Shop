@@ -1,0 +1,374 @@
+.header{
+    height: 120px;
+    background-image: linear-gradient(0,#FF6433,#F53D2D) ;
+    
+}
+
+.header__navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 4px;
+}
+
+.header__navbar-item{
+    margin: 0 8px;
+    position: relative;
+    min-height: 26px;
+}
+
+.header__navbar-item--has-notify:hover .header__notify{
+    display: block;
+}
+/* khi chia toi header__qr no hien ra */
+.header__navbar-item--has-qr:hover .header__qr{
+    display: block;
+}
+
+.header__navbar-item,
+.header__navbar-item-list{
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 300;
+}
+
+
+
+.header__navbar-icon-link:hover,
+.header__navbar-item:hover,
+.header__navbar-item-list:hover{
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    /* con tro chuot hinh ban tay */
+}
+
+.header__navbar-item--strong{
+    font-weight: 400;
+}
+
+.header__navbar-item--separate::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #FB9086;
+    height: 14px;
+    right: -9px;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.header__navbar-icon-link{
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.header__navbar-icon{
+    margin: 0 4px;
+}
+
+.header__navbar-title--no-pointer{
+    cursor: text;
+    color: var(--white-color);
+}
+
+/*start ma qr code */
+
+.header__qr{
+    background: var(--white-color);
+    width: 186px;
+    position: absolute;
+    left: 0;
+    top: 118%;
+    padding: 6px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+    /* bo canh */
+}
+
+.header__qr::before{
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    content: "";
+    display: block;
+    top:-16px;
+}
+
+.header__qr-img{
+    width: 100%;
+}
+
+.header__qr-apps{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__qr-link:first-child{
+    margin-left: 11px;
+}
+/* lay thang con thu 2 */
+.header__qr-link:nth-child(2){
+    margin-right: 11px;
+}
+
+.header__qr-down-img{
+    height: 16px;
+}
+
+/*end ma qr code */
+
+/* start bang thong bao */
+.header__notify{
+    position: absolute;
+    top: 118%;
+    right:0;
+    width: 404px;
+    background-color: var(--white-color);
+    border: 1px solid #D3D3D3;
+    cursor: default;
+    transform-origin: calc(100% - 20px) top;
+    /* chi ra tam cua chuyen dong */
+    animation: headerNotifyGrowth ease-in 0.2s;
+    will-change: opacity, transform;
+    /* noi cho trinh duyet biet cai thuoc tinh j se thay doi */
+    display: none;
+}
+
+.header__notify::before{
+    content: "";
+    border-width: 20px 28px;
+    border-style:solid;
+    border-color:transparent transparent var(--white-color) transparent;
+    position: absolute;
+    right:-2px;
+    top:-29px;
+}
+
+.header__notify::after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top:-20px;
+    width: 90px;
+    height: 20px;
+    /* background-color: #F5F5F5; */
+}
+
+.header__notify-header{
+    height: 40px;
+    background-color: var(--white-color);
+    cursor: default;
+}
+
+.header__notify-header h3{
+    color:#999;
+    margin:0 0 0 12px;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 40px;
+    user-select: none;
+}
+
+.header__notify-list{
+    padding-left: 0;
+}
+
+
+.header__notify-item{
+
+
+}
+
+.header__notify-item--viewed{
+    background: rgba(238, 75, 43, 0.09);
+
+}
+
+.header__notify-link{
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.header__notify-link:hover{
+    background-color: #F5F5F5;
+}
+
+.header__notify-img{
+    width: 48px;
+    object-fit: contain;
+}
+
+
+.header__notify-info{
+    margin-left: 12px;
+}
+
+
+.header__notify-name{
+    display: block;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 400;
+    line-height: 1.8rem;
+}
+
+
+.header__notify-descriotion{
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+.header__notify-footer{
+    display: flex;
+}
+
+.header__notify-footer-btn{
+    text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+    padding: 8px 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+
+@keyframes headerNotifyGrowth{
+    /* scale la do lon len 0 la k thay 1 la tro ve kich thuoc cu */
+    from{
+        transform: scale(0);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* end bang thong bao */
+
+
+
+
+/* start auth */
+
+.auth-form{
+    width: 500px;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    overflow: hidden;
+}
+
+.auth-form__container{
+    padding: 0 32px;
+}
+
+
+
+.auth-form__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-form__heading{
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.auth-form__switch-btn{
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.auth-form__form{
+    
+}
+
+.auth-form__input{
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+    outline: none;
+}
+
+.auth-form__input:focus{
+    border-color: #777;
+}
+
+.auth-form__aside{
+    margin-top: 18px;
+}
+
+.auth-form__policy-text{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+    padding:0 12px;
+
+}
+
+.auth-form__text-link{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.auth-form__controls{
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__controls-back{
+    margin-right: 8px;
+    margin-bottom: 22px;
+}
+
+.auth-form__socials{
+    background: #f5f5f5;
+    padding: 16px 36px;
+    display: flex;
+    justify-content: space-between;
+    /* border-radius: 0 0 5px 5px; */
+
+}
+
+.auth-form__socials--fb{
+    background-color: #3A5A98;
+    color:var(--white-color);
+}
+
+.auth-form__socials-icon{
+    font-size: 1.8rem;
+}
+
+.auth-form__socials-title{
+    margin: 0 36px;
+}
+
+.auth-form__socials--gg{
+    background: var(--white-color);
+    color:#666;
+}
+/* end auth */
