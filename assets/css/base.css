@@ -5,6 +5,7 @@
     --text-color: #333;
     --primary-color:#ee4d2d;
     --border-color: #dbdbdb;
+    --star-color: #D0011B;
 
     --navbar-height: 34px;
     --header-height: 120px;
@@ -24,6 +25,7 @@ html{
     box-sizing: border-box;
 }
 
+/* responsive */
 .grid{
     width: 1200px;
     max-width: 100%;
@@ -37,9 +39,27 @@ html{
 .grid_row{
     display: flex;
     flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+/* test */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
 }
 
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
 
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3333%;
+}
 
 /* chuyen dong */
 @keyframes fadeIn{
@@ -104,7 +124,7 @@ html{
     color:var(--text-color);
     outline: none;
     background: var(--white-color);
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     line-height: 1.6rem;
@@ -132,4 +152,43 @@ html{
 }
 /* end button style */
 
+/* start selection */
+.select-input{
+    position: relative;
+    padding: 0 12px;
+    height: 34px;
+    min-width: 200px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.select-input__list{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:calc(100% - 8px);
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    list-style: none;
+    border: 2px solid rgba( 0,0,0,0.05);
+    display: none;
+}
+
+
+
+.select-input__link{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 4px 2px;
+}
+
+.select-input__link:hover{
+    color:var(--primary-color);
+}
+/* end selection */
