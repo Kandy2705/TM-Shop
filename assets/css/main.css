@@ -181,7 +181,7 @@
 
 .header__qr{
     background: var(--white-color);
-    width: 186px;
+    width: 150px;
     position: absolute;
     left: 0;
     top: 118%;
@@ -189,6 +189,8 @@
     border-radius: 2px;
     display: none;
     animation: fadeIn ease-in 0.1s;
+    border: 2px solid #9393932e;
+    z-index: 1;
     /* bo canh */
 }
 
@@ -212,15 +214,15 @@
 }
 
 .header__qr-link:first-child{
-    margin-left: 11px;
+    margin-left: 8px;
 }
 /* lay thang con thu 2 */
 .header__qr-link:nth-child(2){
-    margin-right: 11px;
+    margin-right: 8px;
 }
 
 .header__qr-down-img{
-    height: 16px;
+    height: 13.5px;
 }
 
 /*end ma qr code */
@@ -555,6 +557,9 @@
 .header__cart-list-item{
     padding-left: 0;
     list-style: none;
+    height:28vh;
+    overflow-y: auto;
+    /* tao thanh keo */
 }
 
 .header__cart-item{
@@ -588,6 +593,15 @@
     font-weight: 500;
     color:var(--text-color);
     margin: 0;
+    line-height: 2rem;
+    max-height: 4rem;
+    overflow: hidden;
+    padding-right: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    flex: 1;
+    text-align: left;
 }
 
 .header__cart-item-price{
@@ -667,6 +681,7 @@
     display: none;
     animation: fadeIn ease-in 0.1s;
     cursor: default;
+    z-index: 2;
 }
 
 .header__cart-list--no-cart{
@@ -721,6 +736,7 @@
     color: var(--text-color);
     padding: 0 16px;
     border-radius: 2px;
+    z-index: 1;
 }
 
 .header__search-select{
@@ -841,6 +857,7 @@
     box-shadow: 0 1px 5px #c8c8c8;
     display: none;
     overflow: hidden;
+    z-index: 1;
 }
 
 .header__search-history-heading{
@@ -892,11 +909,14 @@
 }
 
 .category__heading{
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--text-color);
-    padding: 12px 16px;
+    font-weight: 400;
+    padding: 10px 16px;
     margin-top: 0;
+    margin-bottom: 0;
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    text-transform: uppercase;
 }
 
 .category__heading-icon{
@@ -982,6 +1002,17 @@
 
 .select-input:hover .select-input__list{
     display: block;
+    z-index: 1;
+}
+
+.select-input::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    top:15px;
+    left:-1px;
 }
 
 .select-input__label-icon{
@@ -1045,9 +1076,29 @@
 /* end Home sort + filter */
 
 /* start san pham trang */
+
+.home-product{
+    margin-bottom: 48px;
+    margin-top: 10px;
+}
+
 .home-product-item{
+    display: block;
+    text-decoration: none;
+    position: relative;
     background-color: var(--white-color);
     margin-top: 10px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 0.15rem 0.1rem 0 rgba(0,0,0,0.1);
+    transition: transform ease-in 0.1s;
+    will-change: transform;
+    padding-bottom: 10px;
+}
+
+.home-product-item:hover{
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.05);
+    transform: translateY(-2px);
 }
 
 .home-product-item__img{
@@ -1150,19 +1201,198 @@ i.home-product-item__like-icon-fill{
 }
 
 .home-product-item__favourite{
+    position: absolute;
+    top:10px;
+    left: -4px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    font-weight: 500;
+    padding-right: 4px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
 
+.home-product-item__favourite::after{
+    content: "";
+    border-top: 4px solid var(--primary-color);
+    filter: brightness(56%);
+    border-left: 4px solid transparent;
+    position: absolute;
+    bottom: -3.5px;
+    left: 0;
+}
+
+.home-product-item__favourite i{
+    font-size: 0.9rem;
+    margin: 0 2px 0 5px;
 }
 
 .home-product-item__sale-off{
-
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 36px;
+    background: rgba(255, 216, 64, 0.94);
+    text-align: center;
 }
 
-.home-product-item__percent{
+.home-product-item__sale-off::after{
+    content: "";
+    border-width: 0 20px 5px;
+    border-style: solid;
+    border-color: transparent rgba(255, 216, 64, 0.93) transparent rgba(255, 216, 64, 0.93);
+    margin: auto;
+    position: absolute;
+    top: 100%;
+    right: 0%;
+}
 
+
+.home-product-item__percent{
+    color:#ee4d2d;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    position: relative;
+    top:2px;
 }
 
 .home-product-item__label{
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    color: var(--white-color);
+    font-weight: 600;
+    position: relative;
+    top:2px;
+    text-shadow: black 0.3px 0.3px 0.3px;
+}
 
+.home-product__pagination{
+    margin-bottom: 32px;
 }
 
 /* end san pham trang */
+
+/* start thanh trang */
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination-item{
+    margin: 0 12px;
+}
+
+.pagination-item--active .pagination-item__link{
+    background: var(--primary-color);
+    color:var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover{
+    background-color: rgba(238, 77, 45, 0.9);
+}
+
+.pagination-item__link{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #939393;
+    min-width: 40px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+}
+
+.pagination-item__icon{
+
+}
+
+/* end thanh trang */
+
+/* start footer */
+.footer{
+    padding-top: 16px;
+    border-top: 4px solid var(--primary-color);
+}
+
+.footer__heading{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.footer__list{
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-item__link{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color:#737373;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-item__link:hover{
+    color: var(--primary-color);
+}
+
+.footer-item__icon{
+    font-size: 1.6rem;
+    margin-top: -1px;
+    margin-right: 8px;
+}
+
+.footer__down{
+    display: flex;
+}
+
+.footer__down-qr{
+    width: 80px;
+    object-fit: contain;
+    /* kich thuoc ko bi bien dang */
+    border: 0.5px solid #c8c8c8;
+}
+
+.footer__down-apps{
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+
+.footer__down-apps-img{
+    height: 20px;
+    
+}
+
+.footer__down-apps-link{
+    text-decoration: none;
+}
+
+
+.footer__bottom{
+    background: #f5f5f5;
+    padding: 12px 0;
+    margin-top: 36px;
+}
+
+.footer__text{
+    margin: 0;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+    color: #737373;
+}
+
+/* end footer */
