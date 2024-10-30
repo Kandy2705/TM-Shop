@@ -2,13 +2,14 @@
     /* dat ten cho cac bien thuong dung */
     --white-color: #fff;
     --black-color: #000;
-    --text-color: #333;
-    --primary-color:#ee4d2d;
-    --border-color: #dbdbdb;
-    --star-color: #D0011B;
+    --text-color: #474747;
+    --nav-color: linear-gradient(0,#C75B7A,#921A40);
+    --button-color:#C75B7A;
+    --button-hover:#5A0000;
+    --bg-color:#FFFAF4;
 
     --navbar-height: 34px;
-    --header-height: 120px;
+    --header-height: 60px;
     --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
     --header-sort-bar-height: 46px;
 }
